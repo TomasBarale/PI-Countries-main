@@ -61,21 +61,22 @@ const getCountries = async (req, res) => {
 };
 const getCountryById = async (req, res) => {
   const { id } = req.params;
-  let allCountries = await Country.findAll({ include: Activity });
+  let allCountries = await Country.findAll({
+    include: {
+      model: Activity,
+      attributes: ["name", "dificulty", "duration", "season"],
+      through: {
+        attributes: [],
+      },
+    },
+  });
   let countriesId = allCountries.filter((el) =>
     el.id.toLowerCase().includes(id.toLowerCase())
   );
-  /* let countryDB = await Country.findAll({
-    where:{id : id} ,
-    include:{
-        model: Activity,
-        attributes:["name", "dificulty", "duration", "season"],
-        through: {
-            attributes: []
-        }
-    }
-}) */
-  return res.status(200).send(countriesId);
+
+  return countriesId.length
+    ? res.status(200).send(countriesId)
+    : res.status(404).send("No se recibio un id correcto");
 };
 
 // const getApiInfo = async () => {
