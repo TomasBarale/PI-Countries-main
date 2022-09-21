@@ -9,3 +9,16 @@ export function getCountries() {
     });
   };
 }
+
+export function filterCountriesByContinent(payload) {
+  return {
+    type: "FILTER_BY_CONTINENT",
+    payload,
+  };
+}
+// export function filterActivityCreated(payload) {
+//   return {
+//     type: "FILTER_ACTIVITY_CREATED",
+//     payload,
+//   };
+// }

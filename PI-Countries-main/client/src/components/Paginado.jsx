@@ -3,7 +3,7 @@ import React from "react";
 export default function Paginado({ countriesPerPage, allCountries, paginado }) {
   const pageNumbers = [];
 
-  for (let i = 0; i <= Math.ceil(allCountries / countriesPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(allCountries / countriesPerPage); i++) {
     //redondea para arriba todas las countries sobre la cantidad que quiero por pagina
     pageNumbers.push(i);
   }

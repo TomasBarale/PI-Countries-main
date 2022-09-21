@@ -1,9 +1,10 @@
 const { Router } = require("express");
+const {
+  getCountries,
+  getCountryById,
+} = require("../logistic/Country.controller.js");
 const router = Router();
 const axios = require("axios");
-
-//importamos las funciones del controlador
-const { getCountries, getCountryById } = require("../logistic/Country");
 
 router.get("/", getCountries);
 

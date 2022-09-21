@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries } from "../actions";
+import { getCountries, filterCountriesByContinent } from "../actions";
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import Paginado from "./Paginado";
@@ -33,6 +33,10 @@ export default function Home() {
     dispatch(getCountries());
   }
 
+  function handleFilterContinent(e) {
+    dispatch(filterCountriesByContinent(e.target.value));
+  }
+
   return (
     <div>
       <Link to="/activities">Create activity</Link>
@@ -46,18 +50,29 @@ export default function Home() {
       </button>
       <div>
         <select>
+          <option value="All">Population</option>
           <option value="asc">Ascendente</option>
-          <option value="des">Descendente </option>
+          <option value="des">Descendente</option>
         </select>
         <select>
           <option value="asc">A-Z</option>
           <option value="des">Z-A</option>
         </select>
         <select>
-          <option value="act">Activities</option>
+          <option value="All">Activities</option>
+          <option value="created">Activity created</option>
+          <option value="no">No activity</option>
         </select>
-        <select>
-          <option value="cont">Continent</option>
+
+        <select onChange={(e) => handleFilterContinent(e)}>
+          <option value="All">Continent</option>
+          <option value="North America">North America</option>
+          <option value="South America">South America</option>
+          <option value="Europe">Europe</option>
+          <option value="Oceania">Oceania</option>
+          <option value="Africa">Africa</option>
+          <option value="Asia">Asia</option>
+          <option value="Antarctica">Antarctica</option>
         </select>
 
         <Paginado
@@ -66,7 +81,7 @@ export default function Home() {
           paginado={paginado}
         />
 
-        {allCountries?.map((m) => {
+        {currentCountry?.map((m) => {
           return (
             <div>
               <Link to={"/home/" + m.id}>
