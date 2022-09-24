@@ -57,13 +57,12 @@ export function getActivities() {
   };
 }
 
-export function postCountries(payload) {
+export function postActivities(payload) {
   return async function (dispatch) {
-    const response = await axios.post(
-      "http://localhost:3001/activities",
+    var response = await axios.post(
+      `http://localhost:3001/activities`,
       payload
     );
-    console.log(response);
     return response;
   };
 }
@@ -71,6 +70,20 @@ export function filterActivities(payload) {
   return {
     type: "FILTER_BY_ACTIVITY",
     payload: payload,
+  };
+}
+
+export function getDetail(id) {
+  return async function (dispatch) {
+    try {
+      var json = await axios.get("http://localhost:3001/countries/" + id);
+      return dispatch({
+        type: "GET_DETAILS",
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 

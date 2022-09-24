@@ -119,7 +119,7 @@ export default function Home() {
           return (
             <div>
               <Link to={"/home/" + m.id}>
-                <Card name={m.name} flag={m.flag} continent={m.continent} />;
+                <Card name={m.name} flag={m.flag} continent={m.continent} />
               </Link>
             </div>
           );
