@@ -10,13 +10,13 @@ export default function Paginado({ countriesPerPage, allCountries, paginado }) {
   }
   return (
     <nav>
-      <div className={styles.paginador}>
+      <ul className={styles.paginador}>
         {pageNumbers?.map((number) => (
-          <div className={styles.number} key={number}>
-            <a onClick={() => paginado(number)}>{number}</a>
-          </div>
+          <li className={styles.number} key={number}>
+            <button onClick={() => paginado(number)}>{number}</button>
+          </li>
         ))}
-      </div>
+      </ul>
     </nav>
   ); // si hay pagenumbers mapealo y devuelve por cada uno de los numeros que devuelva el paginado
 }

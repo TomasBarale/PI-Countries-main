@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { postActivities, getCountries } from "../actions";
+import { postActivities, getCountries } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 
 function validate(input) {
@@ -164,7 +164,9 @@ export default function CreateActivity() {
         <ul>
           <li>{input.countriesName.map((el) => el + " ,")}</li>
         </ul>
-        <button type="submit">Create</button>
+        <button type="submit">
+          <span class="text">Create</span>
+        </button>
       </form>
       {/* Para borrar los paises seleccionados */}
       {input.countriesName.map((el) => (
