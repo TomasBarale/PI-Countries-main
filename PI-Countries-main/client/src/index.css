@@ -1,5 +1,7 @@
 body {
   background: url(https://static.vecteezy.com/system/resources/previews/000/669/834/large_2x/futuristic-glowing-dark-blue-world-map-silhouette.jpg);
+  background-repeat: repeat;
+  background-size: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",

@@ -8,7 +8,7 @@ ul {
   margin-bottom: 30px;
 }
 
-.number button {
+.number .buttonPag {
   padding: 20px 15px;
   height: 32px;
   text-align: center;
@@ -26,12 +26,12 @@ ul {
   cursor: pointer;
   font-size: 15px;
 }
-
-.number button:hover {
-  opacity: 0.6;
+.number .buttonPag:hover {
+  background-color: #4e7f82;
   transition: 0.3s;
+  color: white;
 }
 
-.number button:active {
-  background-color: yellow;
+.number .buttonPag:active {
+  background-color: #4e7f82;
 }

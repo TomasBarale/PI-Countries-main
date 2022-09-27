@@ -70,9 +70,12 @@ export default function Home() {
 
   return (
     <div>
-      <Link to="/activities">Create activity</Link>
+      <Link className={style.linkCreate} to="/activities">
+        Create activity
+      </Link>
       <h1>Countries</h1>
       <button
+        className={style.reload}
         onClick={(e) => {
           handleClick(e);
         }}
@@ -80,9 +83,10 @@ export default function Home() {
         Reload countries
       </button>
       <div>
-        <div>
+        <div className={style.filterBar}>
           <select
             onChange={(e) => handleSortPopulation(e)}
+            className={style.filter}
             defaultValue={"default"}
           >
             <option value="default" disabled>
@@ -92,7 +96,11 @@ export default function Home() {
             <option value="men">Smaller population</option>
           </select>
 
-          <select onChange={(e) => handleSortName(e)} defaultValue={"default"}>
+          <select
+            onChange={(e) => handleSortName(e)}
+            className={style.filter}
+            defaultValue={"default"}
+          >
             <option value="default" disabled>
               Order by name
             </option>
@@ -102,6 +110,7 @@ export default function Home() {
 
           <select
             onChange={(e) => handleFilterByActivities(e)}
+            className={style.filter}
             defaultValue={"default"}
           >
             <option value="default" disabled>
@@ -113,6 +122,7 @@ export default function Home() {
 
           <select
             onChange={(e) => handleFilterContinent(e)}
+            className={style.filter}
             defaultValue={"default"}
           >
             <option value="default" disabled>
@@ -126,19 +136,19 @@ export default function Home() {
             <option value="Asia">Asia</option>
             <option value="Antarctica">Antarctica</option>
           </select>
-
-          <Paginado
-            countriesPerPage={countriesPerPage}
-            allCountries={allCountries.length}
-            paginado={paginado}
-          />
         </div>
+        <Paginado
+          countriesPerPage={countriesPerPage}
+          allCountries={allCountries.length}
+          paginado={paginado}
+        />
+
         <SearchBar />
         <div className={style.displayCards}>
           {currentCountry?.map((m) => {
             return (
               <div>
-                <Link to={"/home/" + m.id}>
+                <Link className={style.link} to={"/home/" + m.id}>
                   <Card name={m.name} flag={m.flag} continent={m.continent} />
                 </Link>
               </div>

@@ -1,0 +1,81 @@
+.container-create {
+  text-align: center;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: white; */
+  /* width: 400px; */
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+
+  font-size: 1.2rem;
+  color: white;
+  text-shadow: -2px 2px 1px black;
+}
+
+input {
+  margin-inline: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+input:hover {
+  background-color: #4e7f82;
+
+  transition: 0.3s;
+  color: white;
+}
+.input:focus {
+  outline: none;
+}
+
+.warning {
+  color: red;
+}
+
+.createbtn {
+  background: rgb(23, 25, 30);
+  background: linear-gradient(
+    0deg,
+    rgba(23, 25, 30, 1) 0%,
+    rgba(42, 45, 60, 1) 100%
+  );
+  margin-top: 2%;
+  text-decoration: none;
+  padding: 5px;
+  width: 60px;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #4e7f82,
+    0 0 0.8rem #4e7f82, 0 0 2.8rem #4e7f82, inset 0 0 1.3rem #4e7f82;
+}
+
+.createbtn:hover {
+  background-color: #4e7f82;
+  transition: 0.3s;
+  color: white;
+}
+
+.buttonX {
+  margin-top: 20px;
+  background-color: red;
+  height: 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: -5px 5px 5px black;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+}
+
+.buttonX:hover {
+  background-color: white;
+  color: #0559e1;
+}
