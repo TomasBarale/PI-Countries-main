@@ -20,7 +20,7 @@ export default function CreateActivity() {
   function validate(input) {
     let errors = {};
     if (!input.name) {
-      errors.name = "required field";
+      errors.name = "Required field";
       setButtonEnabled(false);
     }
     if (!input.dificulty) {
@@ -39,6 +39,8 @@ export default function CreateActivity() {
       errors.countriesName = "Please, select a country";
       setButtonEnabled(false);
     }
+    if (Object.entries(errors).length === 0) setButtonEnabled(true);
+
     return errors;
   }
 
@@ -56,16 +58,30 @@ export default function CreateActivity() {
   }
 
   function handleCountrySelect(e) {
+    if (input.countriesName.includes(e.target.value))
+      return alert("You've already selected that country");
     setInput({
       ...input,
       countriesName: [...input.countriesName, e.target.value],
     });
+    setErrors(
+      validate({
+        ...input,
+        [e.target.name]: e.target.value,
+      })
+    );
   }
   function handleSelect(e) {
     setInput({
       ...input,
       [e.target.name]: e.target.value,
     });
+    setErrors(
+      validate({
+        ...input,
+        [e.target.name]: e.target.value,
+      })
+    );
   }
   function handleDelete(e) {
     setInput({

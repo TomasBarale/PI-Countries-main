@@ -31,8 +31,8 @@ export default function Detail(props) {
             <h2>Id: {myCountry[0].id}</h2>
             <h3>Capital: {myCountry[0].capital}</h3>
             <h3>Subregion: {myCountry[0].subregion}</h3>
-            <h3>Area: {myCountry[0].area}</h3>
-            <h3>Population: {myCountry[0].population}</h3>
+            <h3>Area: {myCountry[0].area} km²</h3>
+            <h3>Population: {myCountry[0].population} inhabitants</h3>
           </div>
           <div className={style.containerActivitiesCards}>
             {myCountry[0].activities.length ? (
@@ -42,13 +42,13 @@ export default function Detail(props) {
             ) : (
               ""
             )}
-            {myCountry[0].activities?.map((e) => (
+            {myCountry[0].activities?.map((m) => (
               <div>
                 <ul className={style.cardActivities}>
-                  <li>Name: {e.name}</li>
-                  <li>Dificultad: {e.dificulty}</li>
-                  <li>Duration: {e.duration}HS</li>
-                  <li>Season: {e.season}</li>
+                  <li>Name: {m.name}</li>
+                  <li>Dificulty: {m.dificulty}</li>
+                  <li>Duration: {m.duration} minutes</li>
+                  <li>Season: {m.season}</li>
                 </ul>
               </div>
             ))}
