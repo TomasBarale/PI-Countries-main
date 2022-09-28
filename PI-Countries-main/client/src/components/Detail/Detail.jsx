@@ -35,12 +35,12 @@ export default function Detail(props) {
             <h3>Population: {myCountry[0].population} inhabitants</h3>
           </div>
           <div className={style.containerActivitiesCards}>
-            {myCountry[0].activities.length ? (
+            {!myCountry[0].activities.length ? (
+              ""
+            ) : (
               <h3>
                 <b>Activities: </b>
               </h3>
-            ) : (
-              ""
             )}
             {myCountry[0].activities?.map((m) => (
               <div>

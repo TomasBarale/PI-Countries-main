@@ -69,7 +69,7 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <div className={style.contaainer}>
       <Link className={style.linkCreate} to="/activities">
         Create activity
       </Link>

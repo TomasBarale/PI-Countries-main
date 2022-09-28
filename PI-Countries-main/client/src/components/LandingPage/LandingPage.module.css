@@ -2,6 +2,7 @@
   position: relative;
   display: inline-block;
   text-align: center;
+  /* background-image: url("https://th.bing.com/th/id/OIP.5Wb5hev9Rc46qwe707_6awHaFj?w=245&h=184&c=7&r=0&o=5&dpr=1.25&pid=1.7"); */
 }
 
 .text {
@@ -16,7 +17,7 @@
   box-shadow: 0px 0px 50px #000;
 }
 
-button {
+/* button {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -102,4 +103,101 @@ button:hover .circle .iconArrow {
 
 button:hover .buttonText {
   color: rgb(47, 47, 155);
+} */
+.enter {
+  position: relative;
+  padding: 1em 1.8em;
+  outline: none;
+  border: 1px solid #303030;
+  background: #212121;
+  color: #ae00ff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 15px;
+  overflow: hidden;
+  transition: 0.2s;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.enter:hover {
+  box-shadow: 0 0 10px #ae00ff, 0 0 25px #001eff, 0 0 50px #ae00ff;
+  transition-delay: 0.6s;
+}
+
+.enter span {
+  position: absolute;
+}
+
+.enter span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ae00ff);
+}
+
+.enter:hover span:nth-child(1) {
+  left: 100%;
+  transition: 0.7s;
+}
+
+.enter span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #001eff);
+}
+
+.enter:hover span:nth-child(3) {
+  right: 100%;
+  transition: 0.7s;
+  transition-delay: 0.35s;
+}
+
+.enter span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #ae00ff);
+}
+
+.enter:hover span:nth-child(2) {
+  top: 100%;
+  transition: 0.7s;
+  transition-delay: 0.17s;
+}
+
+.enter span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #001eff);
+}
+
+.enter:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 0.7s;
+  transition-delay: 0.52s;
+}
+
+.enter:active {
+  background: #ae00af;
+  background: linear-gradient(to top right, #ae00af, #001eff);
+  color: #bfbfbf;
+  box-shadow: 0 0 8px #ae00ff, 0 0 8px #001eff, 0 0 8px #ae00ff;
+  transition: 0.1s;
+}
+
+.enter:active
+  span:nth-child(1)
+  span:nth-child(2)
+  span:nth-child(2)
+  span:nth-child(2) {
+  transition: none;
+  transition-delay: none;
 }

@@ -31,7 +31,11 @@ export default function SearchBar() {
           placeholder="Search country"
           onChange={(e) => handleInputChange(e)}
         />
-        <button type="submit" onClick={(e) => handleSubmit(e)}>
+        <button
+          className={style.btnSearch}
+          type="submit"
+          onClick={(e) => handleSubmit(e)}
+        >
           Search
         </button>
       </div>

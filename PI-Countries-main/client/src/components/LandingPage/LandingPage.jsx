@@ -8,11 +8,11 @@ export default function LandingPage() {
       <div className={style.text}>
         <h1>Welcome to my countries page</h1>
         <Link to="/home">
-          <button className={style.learnMore}>
-            <span className={style.circle} aria-hidden="true">
-              <span className={style.iconArrow}></span>
-            </span>
-            <span className={style.buttonText}>Enter</span>
+          <button className={style.enter}>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span> Enter
           </button>
         </Link>
       </div>

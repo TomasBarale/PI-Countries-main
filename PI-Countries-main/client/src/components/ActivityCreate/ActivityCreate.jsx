@@ -111,26 +111,29 @@ export default function CreateActivity() {
     <div>
       <div className={style.containerCreate12}>
         <Link to="/home">
-          <button>Back</button>
+          <button className={style.btnHoome}>Home</button>
         </Link>
 
         <h1>Create your Activity!</h1>
         <form onSubmit={(e) => handleSubmit(e)}>
-          <div>
-            <label>Activity: </label>
+          <div className={style.separate}>
+            {/* <label>Activity: </label> */}
             <input
+              className={style.input}
               type="text"
               value={input.name}
               name="name"
+              placeholder="Activity name"
               onChange={(e) => handleChange(e)}
             />
           </div>
           <div>
             {errors.name && <p className={style.warning}>{errors.name}</p>}
           </div>
-          <div>
-            <label>Difficulty:</label>
+          <div className={style.separate}>
+            {/* <label>Difficulty:</label> */}
             <select
+              className={style.selectt}
               defaultValue={"default"}
               name="dificulty"
               onChange={(e) => handleSelect(e)}
@@ -150,22 +153,24 @@ export default function CreateActivity() {
               <p className={style.warning}>{errors.dificulty}</p>
             )}
           </div>
-          <div>
-            <label>Duration:</label>
+          <div className={style.separate}>
+            {/* <label>Duration:</label> */}
             <input
+              className={style.input}
               type="number"
               value={input.duration}
               name="duration"
               min={1}
               max={300}
+              placeholder="Duration"
               onChange={(e) => handleChange(e)}
             />
             {errors.duration && (
               <p className={style.warning}>{errors.duration}</p>
             )}
           </div>
-          <div>
-            <label>Season:</label>
+          <div className={style.separate}>
+            {/* <label>Season:</label> */}
             <select
               defaultValue={"default"}
               name="season"
@@ -183,7 +188,7 @@ export default function CreateActivity() {
           <div>
             {errors.season && <p className={style.warning}>{errors.season}</p>}
           </div>
-          <div>
+          <div className={style.separate}>
             <select
               defaultValue={"default"}
               name="countriesName"
@@ -202,9 +207,9 @@ export default function CreateActivity() {
               )}
             </div>
           </div>
-          {/* <ul>
-          <li>{input.countriesName.map((el) => el + ", ")}</li>
-        </ul> */}
+          <ul>
+            <li>{input.countriesName.map((el) => el + ", ")}</li>
+          </ul>
           <button
             className={style.createbtn}
             type="submit"
@@ -215,9 +220,9 @@ export default function CreateActivity() {
         </form>
         {input.countriesName.map((m) => (
           <div className={style.form}>
-            <p>
+            <p className={style.p}>
               {m}
-              <button classname={style.buttonX} onClick={() => handleDelete(m)}>
+              <button className={style.buttonX} onClick={() => handleDelete(m)}>
                 X
               </button>
             </p>

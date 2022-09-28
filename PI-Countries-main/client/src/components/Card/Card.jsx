@@ -5,7 +5,7 @@ export default function Card({ name, flag, continent }) {
   return (
     <div className={style.card}>
       <img
-        className={style.cardImg}
+        className={style.cardFlag}
         src={flag}
         alt="flag not found"
         width="300px"

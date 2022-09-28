@@ -21,23 +21,29 @@
 
 .search input {
   padding: 5px;
-  width: 140px;
+  width: 150px;
   border-radius: 10px;
   font-size: 14px;
 }
-.search button {
+.search .btnSearch {
   padding: 5px;
   width: 60px;
   color: #fff;
   border-radius: 10px;
   font-size: 13px;
   cursor: pointer;
+  background: rgb(23, 25, 30);
 }
 
-.search button:hover {
-  background-color: #4e7f82;
+.search .btnSearch:hover {
+  /* background-color: #4e7f82;
   transition: 0.3s;
-  color: white;
+  color: white; */
+  transform: scale(0.9);
+  border-radius: 10px;
+  background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+  background-color: #1a1a1a;
+  box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.3);
 }
 /*
 @media (max-width: 1300px) {

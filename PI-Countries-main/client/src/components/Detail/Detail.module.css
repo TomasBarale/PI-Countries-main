@@ -1,67 +1,3 @@
-/* .btn-home-detail {
-  float: left;
-  margin-top: 30px;
-  margin-left: 50px;
-  border-radius: 20px;
-  font-size: 15px;
-  cursor: pointer;
-  padding: 10px;
-}
-
-.container {
-  margin-left: 450px;
-  margin-top: 20px;
-  padding: 20px;
-  width: 40%;
-  height: auto;
-  color: white;
-  border-radius: 20px;
-  justify-content: center;
-  background: rgb(23, 25, 30);
-  background: linear-gradient(
-    0deg,
-    rgba(23, 25, 30, 1) 0%,
-    rgba(42, 45, 60, 1) 100%
-  );
-  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #4e7f82,
-    0 0 0.8rem #4e7f82, 0 0 2.8rem #4e7f82, inset 0 0 1.3rem #4e7f82;
-}
-
-.flag {
-  width: 400px;
-  height: w00px;
-  border: 1px solid white;
-  border-radius: 10px;
-  object-fit: cover;
-}
-.cardActividad {
-  color: rgba(214, 213, 142, 0.897);
-  font-family: "Open Sans", sans-serif;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
-  margin-left: 1rem;
-  width: 400px;
-  border-radius: 20px;
-  text-align: center;
-}
-
-.containerActivity {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-.noActivity {
-  color: white;
-}
-.letras {
-  margin-top: 40px;
-  margin-left: 30px;
-  text-align: left;
-  font-size: 20px;
-} */
-
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -125,12 +61,18 @@
   border-radius: 10px;
   font-size: 13px;
   cursor: pointer;
+  background: rgb(23, 25, 30);
   box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #4e7f82,
     0 0 0.8rem #4e7f82, 0 0 2.8rem #4e7f82, inset 0 0 1.3rem #4e7f82;
 }
 
 .buttonBack:hover {
-  background-color: #4e7f82;
+  /* background-color: #4e7f82;
   transition: 0.3s;
-  color: white;
+  color: white; */
+  transform: scale(0.9);
+  border-radius: 10px;
+  background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+  background-color: #1a1a1a;
+  box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.3);
 }
