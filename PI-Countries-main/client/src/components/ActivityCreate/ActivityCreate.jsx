@@ -109,115 +109,118 @@ export default function CreateActivity() {
 
   return (
     <div>
-      <div className={style.containerCreate12}>
+      <div>
         <Link to="/home">
           <button className={style.btnHoome}>Home</button>
         </Link>
-
-        <h1>Create your Activity!</h1>
-        <form onSubmit={(e) => handleSubmit(e)}>
-          <div className={style.separate}>
-            {/* <label>Activity: </label> */}
-            <input
-              className={style.input}
-              type="text"
-              value={input.name}
-              name="name"
-              placeholder="Activity name"
-              onChange={(e) => handleChange(e)}
-            />
-          </div>
-          <div>
-            {errors.name && <p className={style.warning}>{errors.name}</p>}
-          </div>
-          <div className={style.separate}>
-            {/* <label>Difficulty:</label> */}
-            <select
-              className={style.selectt}
-              defaultValue={"default"}
-              name="dificulty"
-              onChange={(e) => handleSelect(e)}
-            >
-              <option value="default" disabled>
-                Difficulty
-              </option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-          </div>
-          <div>
-            {errors.dificulty && (
-              <p className={style.warning}>{errors.dificulty}</p>
-            )}
-          </div>
-          <div className={style.separate}>
-            {/* <label>Duration:</label> */}
-            <input
-              className={style.input}
-              type="number"
-              value={input.duration}
-              name="duration"
-              min={1}
-              max={300}
-              placeholder="Duration"
-              onChange={(e) => handleChange(e)}
-            />
-            {errors.duration && (
-              <p className={style.warning}>{errors.duration}</p>
-            )}
-          </div>
-          <div className={style.separate}>
-            {/* <label>Season:</label> */}
-            <select
-              defaultValue={"default"}
-              name="season"
-              onChange={(e) => handleSelect(e)}
-            >
-              <option value="default" disabled>
-                Season
-              </option>
-              <option value="summer">Summer</option>
-              <option value="winter">Winter</option>
-              <option value="autumn">Autumn</option>
-              <option value="spring">Spring</option>
-            </select>
-          </div>
-          <div>
-            {errors.season && <p className={style.warning}>{errors.season}</p>}
-          </div>
-          <div className={style.separate}>
-            <select
-              defaultValue={"default"}
-              name="countriesName"
-              onChange={(e) => handleCountrySelect(e)}
-            >
-              <option value="default" disabled>
-                Select Country
-              </option>
-              {countries.map((m) => (
-                <option value={m.name}>{m.name}</option>
-              ))}
-            </select>
+        <div className={style.containerCreate12}>
+          <h1>Create your Activity!</h1>
+          <form onSubmit={(e) => handleSubmit(e)}>
+            <div className={style.separate}>
+              {/* <label>Activity: </label> */}
+              <input
+                className={style.input}
+                type="text"
+                value={input.name}
+                name="name"
+                placeholder="Activity name"
+                onChange={(e) => handleChange(e)}
+              />
+            </div>
             <div>
-              {errors.countriesName && (
-                <p className={style.warning}>{errors.countriesName}</p>
+              {errors.name && <p className={style.warning}>{errors.name}</p>}
+            </div>
+            <div className={style.separate}>
+              {/* <label>Difficulty:</label> */}
+              <select
+                className={style.selectt}
+                defaultValue={"default"}
+                name="dificulty"
+                onChange={(e) => handleSelect(e)}
+              >
+                <option value="default" disabled>
+                  Difficulty
+                </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+            <div>
+              {errors.dificulty && (
+                <p className={style.warning}>{errors.dificulty}</p>
               )}
             </div>
-          </div>
-          <ul>
-            <li>{input.countriesName.map((el) => el + ", ")}</li>
-          </ul>
-          <button
-            className={style.createbtn}
-            type="submit"
-            disabled={!buttonEnabled}
-          >
-            Create
-          </button>
-        </form>
+            <div className={style.separate}>
+              {/* <label>Duration:</label> */}
+              <input
+                className={style.input}
+                type="number"
+                value={input.duration}
+                name="duration"
+                min={1}
+                max={300}
+                placeholder="Duration"
+                onChange={(e) => handleChange(e)}
+              />
+              {errors.duration && (
+                <p className={style.warning}>{errors.duration}</p>
+              )}
+            </div>
+            <div className={style.separate}>
+              {/* <label>Season:</label> */}
+              <select
+                defaultValue={"default"}
+                name="season"
+                onChange={(e) => handleSelect(e)}
+              >
+                <option value="default" disabled>
+                  Season
+                </option>
+                <option value="summer">Summer</option>
+                <option value="winter">Winter</option>
+                <option value="autumn">Autumn</option>
+                <option value="spring">Spring</option>
+              </select>
+            </div>
+            <div>
+              {errors.season && (
+                <p className={style.warning}>{errors.season}</p>
+              )}
+            </div>
+            <div className={style.separate}>
+              <select
+                defaultValue={"default"}
+                name="countriesName"
+                onChange={(e) => handleCountrySelect(e)}
+              >
+                <option value="default" disabled>
+                  Select Country
+                </option>
+                {countries.map((m) => (
+                  <option value={m.name}>{m.name}</option>
+                ))}
+              </select>
+              <div>
+                {errors.countriesName && (
+                  <p className={style.warning}>{errors.countriesName}</p>
+                )}
+              </div>
+            </div>
+            <ul>
+              <li>{input.countriesName.map((el) => el + ", ")}</li>
+            </ul>
+            <button
+              className={style.createbtn}
+              type="submit"
+              disabled={!buttonEnabled}
+            >
+              Create
+            </button>
+          </form>
+        </div>
         {input.countriesName.map((m) => (
           <div className={style.form}>
             <p className={style.p}>

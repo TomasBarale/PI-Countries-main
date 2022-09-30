@@ -5,7 +5,7 @@ const { Op } = require("sequelize");
 const getCountries = async (req, res) => {
   const { name } = req.query;
   if (!name) {
-    let BD = await Country.findAll({
+    let DB = await Country.findAll({
       attributes: ["id", "name", "flag", "continent", "population"],
       include: {
         model: Activity,
@@ -15,26 +15,26 @@ const getCountries = async (req, res) => {
         },
       },
     });
-    if (BD.length > 0) {
-      return res.status(200).send(BD);
+    if (DB.length > 0) {
+      return res.send(DB);
     } else {
       const allCountries = await axios.get("https://restcountries.com/v3/all");
-      const pais = allCountries.data.map((e) => {
+      const countryy = allCountries.data.map((m) => {
         return {
-          id: e.cca3,
-          name: e.name.common,
-          flag: e.flags[0],
-          continent: e.continents[0],
-          capital: e.capital != null ? e.capital[0] : "No data",
-          subregion: e.subregion,
-          area: e.area,
-          population: e.population,
+          id: m.cca3,
+          name: m.name.common,
+          flag: m.flags[0],
+          continent: m.continents[0],
+          capital: m.capital != null ? m.capital[0] : "No data",
+          subregion: m.subregion,
+          area: m.area,
+          population: m.population,
         };
       });
-      /* const filterCountry = pais.filter((c) => c !== undefined); */
-      await Country.bulkCreate(pais, { validate: true });
 
-      let BD = await Country.findAll({
+      await Country.bulkCreate(countryy, { validate: true });
+
+      let DB = await Country.findAll({
         attributes: ["id", "name", "flag", "continent", "population"],
         include: {
           model: Activity,
@@ -44,17 +44,17 @@ const getCountries = async (req, res) => {
           },
         },
       });
-      return res.status(200).send(BD);
+      return res.send(DB);
     }
-  }
+  } //if(name)
   let allCountries = await Country.findAll({ include: Activity });
-  let countriesName = allCountries.filter((el) =>
-    el.name.toLowerCase().includes(name.toLowerCase())
+  let countriesName = allCountries.filter((f) =>
+    f.name.toLowerCase().includes(name.toLowerCase())
   );
 
   return countriesName.length
-    ? res.status(200).send(countriesName)
-    : res.status(404).send("No existe ese Pais");
+    ? res.send(countriesName)
+    : res.status(404).send("There is no such country");
 };
 
 const getCountryById = async (req, res) => {
@@ -68,13 +68,13 @@ const getCountryById = async (req, res) => {
       },
     },
   });
-  let countriesId = allCountries.filter((el) =>
-    el.id.toLowerCase().includes(id.toLowerCase())
+  let countriesId = allCountries.filter((f) =>
+    f.id.toLowerCase().includes(id.toLowerCase())
   );
 
   return countriesId.length
     ? res.status(200).send(countriesId)
-    : res.status(404).send("No se recibio un id correcto");
+    : res.status(404).send("The id is incorrect");
 };
 
 module.exports = {

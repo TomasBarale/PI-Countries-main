@@ -31,6 +31,13 @@ export function orderByPopulation(payload) {
   };
 }
 
+export function filterActivities(payload) {
+  return {
+    type: "FILTER_BY_ACTIVITY",
+    payload: payload,
+  };
+}
+
 export function getNameCountries(name) {
   return async function (dispatch) {
     try {
@@ -47,16 +54,6 @@ export function getNameCountries(name) {
   };
 }
 
-export function getActivities() {
-  return async function (dispatch) {
-    var info = await axios.get("http://localhost:3001/activities", {});
-    return dispatch({
-      type: "GET_ACTIVITIES",
-      payload: info.data,
-    });
-  };
-}
-
 export function postActivities(payload) {
   return async function (dispatch) {
     var response = await axios.post(
@@ -64,12 +61,6 @@ export function postActivities(payload) {
       payload
     );
     return response;
-  };
-}
-export function filterActivities(payload) {
-  return {
-    type: "FILTER_BY_ACTIVITY",
-    payload: payload,
   };
 }
 
@@ -87,6 +78,12 @@ export function getDetail(id) {
   };
 }
 
+// export function populationLessThan(payload) {
+//   return {
+//     type: "P_LESS_THAN",
+//     payload,
+//   };
+// }
 // export function filterActivityCreated(payload) {
 //   return {
 //     type: "FILTER_ACTIVITY_CREATED",

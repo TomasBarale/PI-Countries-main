@@ -24,18 +24,28 @@ const postActivity = async (req, res, next) => {
 
       if (createdActivity)
         res.json({
-          message: "Actividad creada correctamente",
+          message: "Successfully created activity",
           data: createdActivity,
         });
       else
         res.json({
-          message: "Error no se obtuvieron todos los datos correspondientes",
+          message: "Error not all corresponding data was obtained",
         });
     }
   } catch (error) {
     next(error);
   }
 };
+
+// const deleteActivity = async (req, res) => {
+//   const { id } = req.params;
+//   try {
+//     let act = await Activity.destroy({ where: { id: id } });
+//     return res.status(200).send("Activity deleted successfully!");
+//   } catch (error) {
+//     return res.status(404).send(error);
+//   }
+// };
 
 module.exports = {
   postActivity,

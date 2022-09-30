@@ -24,7 +24,7 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState(1); //1 porque arranca en la primer pagina
   const [countriesPerPage, setCountriesPerPage] = useState(10); //cuantos countries por pagina
   const indexOfLastCountry = currentPage * countriesPerPage; //1 * 10 = 10
-  const indexOfFirstCountry = indexOfLastCountry - countriesPerPage; //0
+  const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
   const currentCountry = allCountries.slice(
     indexOfFirstCountry,
     indexOfLastCountry
@@ -35,6 +35,7 @@ export default function Home() {
   };
 
   useEffect(() => {
+    //trae del estado los paises cuando el componente se monta
     dispatch(getCountries());
   }, [dispatch]);
 
