@@ -92,7 +92,7 @@ export default function CreateActivity() {
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(postActivities(input));
-    alert("Activity created!!");
+
     setInput({
       name: "",
       dificulty: "",

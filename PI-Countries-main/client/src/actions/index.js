@@ -49,6 +49,7 @@ export function getNameCountries(name) {
         payload: json.data,
       });
     } catch (error) {
+      alert("The country introduced does not exist");
       console.log(error);
     }
   };
@@ -56,11 +57,16 @@ export function getNameCountries(name) {
 
 export function postActivities(payload) {
   return async function (dispatch) {
-    var response = await axios.post(
-      `http://localhost:3001/activities`,
-      payload
-    );
-    return response;
+    try {
+      var response = await axios.post(
+        `http://localhost:3001/activities`,
+        payload
+      );
+      alert("Successfully created activity");
+      return response;
+    } catch (error) {
+      alert(error);
+    }
   };
 }
 
@@ -73,20 +79,8 @@ export function getDetail(id) {
         payload: json.data,
       });
     } catch (error) {
+      alert(error);
       console.log(error);
     }
   };
 }
-
-// export function populationLessThan(payload) {
-//   return {
-//     type: "P_LESS_THAN",
-//     payload,
-//   };
-// }
-// export function filterActivityCreated(payload) {
-//   return {
-//     type: "FILTER_ACTIVITY_CREATED",
-//     payload,
-//   };
-// }
